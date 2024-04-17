@@ -1,0 +1,5492 @@
+{
+	"info": {
+		"_postman_id": "3c358e2a-5201-474d-82fe-47da2c1eb6a3",
+		"name": "ClientSupportPlatform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32171712"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "sign up/public",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"   var data = JSON.parse(responseBody);",
+									"",
+									"postman.setGlobalVariable(\"token\", data.token);",
+									"postman.setGlobalVariable(\"refreshToken\", data.refreshToken);",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n   \"email\": \"tonygereige9@gmail.com\",\n   \"firstName\": \"tony\",\n   \"lastName\": \"gereige\",\n   \"password\": \"Tony123\"\n  \n }\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"register"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\n   \"email\": \"tonygereige5@gmail.com\",\n   \"firstName\": \"tony\",\n   \"lastName\": \"gereige\",\n   \"password\": \"Tony123\"\n  \n }\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "321"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"141-R/nPMLLxQ1dvKrfuEkeUuye7es8\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 10:37:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MWU1NGNlYzc5OTYyOTVjMjc4OGIxMCIsImlhdCI6MTcxMzI2MzgyMiwiZXhwIjoxNzEzMjY3NDIyfQ.IiqM_DrgdJtOLBsf18bbo1VAKjaud3BOHx6GvaB65H8\",\n    \"tokenInfo\": {\n        \"id\": \"661e54cec7996295c2788b10\",\n        \"iat\": 1713263822,\n        \"exp\": 1713267422\n    },\n    \"refreshToken\": \"51c786fb8f8a9b4c94a23311d0908852076d3d69\"\n}"
+						},
+						{
+							"name": "user exist",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\n   \"email\": \"tonygereige5@gmail.com\",\n   \"firstName\": \"tony\",\n   \"lastName\": \"gereige\",\n   \"password\": \"Tony123\"\n  \n }\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-SYBVA0knZGKe8zAn/bCIzaIwk6E\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 10:38:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user exist\",\n    \"error\": \"Conflict\",\n    \"statusCode\": 409\n}"
+						},
+						{
+							"name": "bad request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\n   \"email\": \"tonygereige9@gmail.com\",\n  // \"firstName\": \"tony\",\n  // \"lastName\": \"gereige\",\n   \"password\": \"Tony\",\n   \"isEmployee\":true\n  \n }\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "317"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"13d-rpqCX5kuNh1SdZ9nKsrbT8W5SO8\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 10:39:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"property isEmployee should not exist\",\n        \"firstName must be longer than or equal to 3 characters\",\n        \"firstName must be a string\",\n        \"lastName must be longer than or equal to 3 characters\",\n        \"lastName must be a string\",\n        \"password must be longer than or equal to 6 characters\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						}
+					]
+				},
+				{
+					"name": "log in/public",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"   var data = JSON.parse(responseBody);",
+									"",
+									"postman.setGlobalVariable(\"token\", data.token);",
+									"postman.setGlobalVariable(\"refreshToken\", data.refreshToken);",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n    \"email\": \"tonygereige4@gmail.com\",\n    // \"extraInfo\":true,\n    \"password\": \"Tony123\"\n   \n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"email\": \"tonygereige5@gmail.com\",\n    \"password\": \"Tony123\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "321"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"141-U8raeanZ0ZN1VCtlonj9oh4V+mE\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 10:55:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MWU1NGNlYzc5OTYyOTVjMjc4OGIxMCIsImlhdCI6MTcxMzI2NDk1MSwiZXhwIjoxNzEzMjY4NTUxfQ.rvqE-Dej1v1EW-KmH4lbBqJNUEYavD5xwYo5z2sGHY0\",\n    \"tokenInfo\": {\n        \"id\": \"661e54cec7996295c2788b10\",\n        \"iat\": 1713264951,\n        \"exp\": 1713268551\n    },\n    \"refreshToken\": \"ea51ada7af0e745283e77cf65cd892e5323c544b\"\n}"
+						},
+						{
+							"name": "wrong password",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"email\": \"tonygereige5@gmail.com\",\n    \"password\": \"Tony1234\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-dGnJzt6gv1nJjX6DJ9RztDWptng\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 10:57:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\",\n    \"statusCode\": 401\n}"
+						},
+						{
+							"name": "bad Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    //\"email\": \"tonygereige5@gmail.com\",\n     \"extraInfo\":true,\n    \"password\": \"Tony123\"\n   \n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "115"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"73-ZYcjxkSiaCJhm33faLBREDNzcqg\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 10:59:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"property extraInfo should not exist\",\n        \"email must be an email\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "wrong email",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"email\": \"tonygereige9@gmail.com\",\n    // \"extraInfo\":true,\n    \"password\": \"Tony123\"\n   \n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "70"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"46-Jl1ulk1uIW0esdrmL8VpTEbYZxs\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 11:01:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user don't exist\",\n    \"error\": \"Unauthorized\",\n    \"statusCode\": 401\n}"
+						},
+						{
+							"name": "not Active",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"email\": \"tonygereige5@gmail.com\",\n    // \"extraInfo\":true,\n    \"password\": \"Tony123\"\n   \n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"48-K7fxvSQNSw9+Nw+kBwsFPg3JAjw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 11:02:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"account not active\",\n    \"error\": \"Unauthorized\",\n    \"statusCode\": 401\n}"
+						}
+					]
+				},
+				{
+					"name": "cmslogin/public",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"   var data = JSON.parse(responseBody);",
+									"",
+									"postman.setGlobalVariable(\"token\", data.token);",
+									"postman.setGlobalVariable(\"refreshToken\", data.refreshToken);",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n    \"email\": \"tonygereige1@gmail.com\",\n    \"password\": \"Tony123\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/cmslogin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"cmslogin"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": [
+						{
+							"name": "notcmsuser",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"email\": \"tonygereige5@gmail.com\",\n    \"password\": \"Tony123\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/cmslogin",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"cmslogin"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-dGnJzt6gv1nJjX6DJ9RztDWptng\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 11:15:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\",\n    \"statusCode\": 401\n}"
+						},
+						{
+							"name": "user don t exist",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"email\": \"tonygereige9@gmail.com\",\n    \"password\": \"Tony123\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/cmslogin",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"cmslogin"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "70"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"46-Jl1ulk1uIW0esdrmL8VpTEbYZxs\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 11:16:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user don't exist\",\n    \"error\": \"Unauthorized\",\n    \"statusCode\": 401\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"email\": \"tonygereige1@gmail.com\",\n    \"password\": \"Tony123\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/cmslogin",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"cmslogin"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "321"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"141-cNGIvfG5TRsJWu0QR6sgj8ljjR8\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 11:18:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MWU1ZTNlZThhMmQ1YmVlOTJjMWQzZCIsImlhdCI6MTcxMzI2NjMyMiwiZXhwIjoxNzEzMjY5OTIyfQ.9CKNmENUX9-teAep7dmi12Zyxg9jt4dcpatx44bgW4E\",\n    \"tokenInfo\": {\n        \"id\": \"661e5e3ee8a2d5bee92c1d3d\",\n        \"iat\": 1713266322,\n        \"exp\": 1713269922\n    },\n    \"refreshToken\": \"56fcd5c9f3596e09aa1653d4239d52a7869f672a\"\n}"
+						},
+						{
+							"name": "wrong password",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"email\": \"tonygereige1@gmail.com\",\n    \"password\": \"Tony1234\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/cmslogin",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"cmslogin"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-dGnJzt6gv1nJjX6DJ9RztDWptng\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 11:19:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\",\n    \"statusCode\": 401\n}"
+						},
+						{
+							"name": "not active",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"email\": \"tonygereige1@gmail.com\",\n    \"password\": \"Tony123\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/cmslogin",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"cmslogin"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"48-K7fxvSQNSw9+Nw+kBwsFPg3JAjw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 11:19:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"account not active\",\n    \"error\": \"Unauthorized\",\n    \"statusCode\": 401\n}"
+						},
+						{
+							"name": "bad request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n   // \"email\": \"tonygereige1@gmail.com\",\n   // \"password\": \"Tony123\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/cmslogin",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"cmslogin"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "161"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a1-P+cwwCRBT50NCwpa9wwIWtmudQU\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 11:20:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"email must be an email\",\n        \"password must be longer than or equal to 6 characters\",\n        \"password must be a string\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						}
+					]
+				},
+				{
+					"name": "getcmsuser/CmsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/cmsuser/661e5e3ee8a2d5bee92c1d3d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"cmsuser",
+								"661e5e3ee8a2d5bee92c1d3d"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": [
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/cmsuser/661c17c07936e95817711c50",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"cmsuser",
+										"661c17c07936e95817711c50"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28-5C7N4rcpDEmIiuT+YkUQ7dshErk\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 12:39:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Not Found\",\n    \"statusCode\": 404\n}"
+						},
+						{
+							"name": "not cms user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/cmsuser/661e54cec7996295c2788b10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"cmsuser",
+										"661e54cec7996295c2788b10"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f-sizRbx3IULPWcFiOzW7ury7w73I\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 12:41:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"not cms user\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/cmsuser/661e5e3ee8a2d5bee92c1d3d",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"cmsuser",
+										"661e5e3ee8a2d5bee92c1d3d"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "257"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"101-Ne3Q8RQ3Rf53kgmtH5JeFSBsl5Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 12:47:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"661e5e3ee8a2d5bee92c1d3d\",\n    \"firstName\": \"tony\",\n    \"lastName\": \"gereige\",\n    \"email\": \"tonygereige1@gmail.com\",\n    \"isEmployee\": true,\n    \"isAdmin\": false,\n    \"isVIP\": false,\n    \"isActive\": true,\n    \"createdAt\": \"2024-04-16T11:17:18.628Z\",\n    \"updatedAt\": \"2024-04-16T11:17:18.628Z\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "bad Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/cmsuser/661c17c07936e95817711c5",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"cmsuser",
+										"661c17c07936e95817711c5"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "78"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4e-kuMbbzvT7X09Vd9KEDXXq2r7QVw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 23:19:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"id must be a mongodb id\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						}
+					]
+				},
+				{
+					"name": "getcmsusers paginated/CmsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/cmsusers?page=1&limit=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"cmsusers"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": [
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"email\": \"tonygereige5@gmail.com\",\n    \"password\": \"Tony123\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/cmsusers",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"cmsusers"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"54-Lf09rzqgeTxCapbXNqc6KbcfdVM\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 12:56:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Authorization header not found\",\n    \"error\": \"Unauthorized\",\n    \"statusCode\": 401\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"email\": \"tonygereige5@gmail.com\",\n    \"password\": \"Tony123\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/cmsusers?page=2&limit=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"cmsusers"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2"
+										},
+										{
+											"key": "limit",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "249"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f9-5QihhKeZVdFUfa17JfAjBfc9wSY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 13:07:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"paginationInfo\": {\n        \"currentPage\": 2,\n        \"totalPages\": 2,\n        \"totalCmsUser\": 4\n    },\n    \"cmsUsers\": [\n        {\n            \"_id\": \"661e64d5e8a2d5bee92c1d52\",\n            \"email\": \"tonygereige2@gmail.com\",\n            \"isAdmin\": false\n        },\n        {\n            \"_id\": \"661e5e3ee8a2d5bee92c1d3d\",\n            \"email\": \"tonygereige1@gmail.com\",\n            \"isAdmin\": false\n        }\n    ]\n}"
+						},
+						{
+							"name": "bad request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/cmsusers?page=1&limit=2.2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"cmsusers"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "2.2"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-DMzmEAsCuyqbXU1gDUXL2RcPWuY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 13:10:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"limit must be an integer number\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						}
+					]
+				},
+				{
+					"name": "addcms/admin",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n//    \"email\": \"tonygereige13@gmail.com\",\r\n//    \"firstName\": \"John\",\r\n//    \"lastName\": \"Doe\",\r\n//    \"password\": \"Tony123\",\r\n//    \"isAdmin\":true,\r\n//    \"isEmployee\":false,\r\n//    \"isActive\":false,\r\n//    \"isVIP\":true\r\n\r\n  \r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/addCmsUser",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"addCmsUser"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "not admin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"email\": \"tonygereige13@gmail.com\",\r\n   \"firstName\": \"John\",\r\n   \"lastName\": \"Doe\",\r\n   \"password\": \"Tony123\",\r\n   \"isAdmin\":true,\r\n   \"isEmployee\":false,\r\n   \"isActive\":false,\r\n   \"isVIP\":true\r\n\r\n  \r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/addCmsUser",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"addCmsUser"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-MZJWZc+Y+RUbHpnhz2B2Vipii24\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 13:19:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden resource\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"email\": \"tonygereige13@gmail.com\",\r\n   \"firstName\": \"John\",\r\n   \"lastName\": \"Doe\",\r\n   \"password\": \"Tony123\",\r\n   \"isAdmin\":true,\r\n   \"isEmployee\":false,\r\n   \"isActive\":false,\r\n   \"isVIP\":true\r\n\r\n  \r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/addCmsUser",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"addCmsUser"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 13:20:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "bad request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n//    \"email\": \"tonygereige13@gmail.com\",\r\n//    \"firstName\": \"John\",\r\n//    \"lastName\": \"Doe\",\r\n//    \"password\": \"Tony123\",\r\n//    \"isAdmin\":true,\r\n//    \"isEmployee\":false,\r\n//    \"isActive\":false,\r\n//    \"isVIP\":true\r\n\r\n  \r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/addCmsUser",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"addCmsUser"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "331"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14b-uvqql53MPL5jaw3D4Hk4b0ojz2k\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 13:21:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"firstName must be longer than or equal to 3 characters\",\n        \"firstName must be a string\",\n        \"lastName must be longer than or equal to 3 characters\",\n        \"lastName must be a string\",\n        \"email must be an email\",\n        \"password must be longer than or equal to 6 characters\",\n        \"password must be a string\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						}
+					]
+				},
+				{
+					"name": "updateStatusAccount for client/CmsUser",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n   \"isActive\":true\r\n\r\n  \r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/updateUserStatus/661e54cec7996295c2788b10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"updateUserStatus",
+								"661e54cec7996295c2788b10"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "tokenk expired",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \r\n   \"isActive\":true\r\n\r\n  \r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/updateUserStatus/661c17c07936e95817711c59",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"updateUserStatus",
+										"661c17c07936e95817711c59"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"43-zDRTfO3kicY/TQiABw0FhhsdMow\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 13:42:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Token expired\",\n    \"error\": \"Unauthorized\",\n    \"statusCode\": 401\n}"
+						},
+						{
+							"name": "error trying to change cms user",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \r\n   \"isActive\":true\r\n\r\n  \r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/updateUserStatus/661e7b317749510a2b732ed3",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"updateUserStatus",
+										"661e7b317749510a2b732ed3"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"58-GRvKBzSHTtwyTtD86tgfyJoy1uM\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 13:45:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"this user is an cms user not a client\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \r\n   \"isActive\":false\r\n\r\n  \r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/updateUserStatus/661e54cec7996295c2788b10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"updateUserStatus",
+										"661e54cec7996295c2788b10"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 13:46:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "updateRolecms/admin",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n   \"isAdmin\":true\r\n\r\n  \r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/updateUserRole/661e64d5e8a2d5bee92c1d52",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"updateUserRole",
+								"661e64d5e8a2d5bee92c1d52"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "not cmsuser",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \r\n   \"isAdmin\":false\r\n\r\n  \r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/updateUserRole/661e54cec7996295c2788b10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"updateUserRole",
+										"661e54cec7996295c2788b10"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f-sizRbx3IULPWcFiOzW7ury7w73I\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 13:51:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"not cms user\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						},
+						{
+							"name": "not an admin",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \r\n   \"isAdmin\":true\r\n\r\n  \r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/updateUserRole/661e64d5e8a2d5bee92c1d52",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"updateUserRole",
+										"661e64d5e8a2d5bee92c1d52"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-MZJWZc+Y+RUbHpnhz2B2Vipii24\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 13:56:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden resource\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \r\n   \"isAdmin\":true\r\n\r\n  \r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/updateUserRole/661e64d5e8a2d5bee92c1d52",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"updateUserRole",
+										"661e64d5e8a2d5bee92c1d52"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 13:57:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "badrequest",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \r\n   \"isAdmin\":\"truejj\",\r\n   \"extrafieald\":\"hh\"\r\n\r\n  \r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/updateUserRole/661e64d5e8a2d5bee92c1d52",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"updateUserRole",
+										"661e64d5e8a2d5bee92c1d52"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "126"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7e-wCzQZYydm53x+aBrH4Vpcwo+Css\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 13:58:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"property extrafieald should not exist\",\n        \"isAdmin must be a boolean value\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						}
+					]
+				},
+				{
+					"name": "refreshTokenClient/public",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"   var data = JSON.parse(responseBody);",
+									"",
+									"postman.setGlobalVariable(\"token\", data.token);",
+									"postman.setGlobalVariable(\"refreshToken\", data.refreshToken);",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n    \"email\": \"tonygereige5@gmail.com\",\n    \"password\": \"karen123\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/client/{{refreshToken}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"client",
+								"{{refreshToken}}"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"email\": \"tonygereige5@gmail.com\",\n    \"password\": \"karen123\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/client/{{refreshToken}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"client",
+										"{{refreshToken}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "321"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"141-d649xOc69QV8tIMwCNaPijTLDAc\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 14:17:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MWU1NGNlYzc5OTYyOTVjMjc4OGIxMCIsImlhdCI6MTcxMzI3NzAyMCwiZXhwIjoxNzEzMjgwNjIwfQ.75IpZ6y5FKsWluctzpVEf4GDyBGQHFaKHDfTqHsuPpU\",\n    \"tokenInfo\": {\n        \"id\": \"661e54cec7996295c2788b10\",\n        \"iat\": 1713277020,\n        \"exp\": 1713280620\n    },\n    \"refreshToken\": \"9a475b5642d5aba5d8bb8dac46f4ece700a77ad4\"\n}"
+						}
+					]
+				},
+				{
+					"name": "refreshTokenCms/public",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"   var data = JSON.parse(responseBody);",
+									"",
+									"postman.setGlobalVariable(\"token\", data.token);",
+									"postman.setGlobalVariable(\"refreshToken\", data.refreshToken);",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/cmsuserRefreshToken/{{refreshToken}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"cmsuserRefreshToken",
+								"{{refreshToken}}"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": [
+						{
+							"name": "not cms",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/cmsuserRefreshToken/{{refreshToken}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"cmsuserRefreshToken",
+										"{{refreshToken}}"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-dGnJzt6gv1nJjX6DJ9RztDWptng\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 14:17:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\",\n    \"statusCode\": 401\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/cmsuserRefreshToken/{{refreshToken}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"cmsuserRefreshToken",
+										"{{refreshToken}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "321"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"141-yKKJfgPojs2SYyAmwQEsA+kDxWM\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 14:18:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MWU1ZTNlZThhMmQ1YmVlOTJjMWQzZCIsImlhdCI6MTcxMzI3NzExMSwiZXhwIjoxNzEzMjgwNzExfQ.ummf89sLcXPnCtjawCd8xUlVCbhRq4Z8zRJrYVVGv74\",\n    \"tokenInfo\": {\n        \"id\": \"661e5e3ee8a2d5bee92c1d3d\",\n        \"iat\": 1713277111,\n        \"exp\": 1713280711\n    },\n    \"refreshToken\": \"91b4caabe2c18d0559bd5b1cdad9351e2e96e4fd\"\n}"
+						}
+					]
+				},
+				{
+					"name": "change password/Client",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n   \"newPassword\":\"123456\",\r\n   \"oldPassword\":\"Tony123\"\r\n\r\n  \r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/changepassword",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"changepassword"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "bad request",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \r\n   \"newPassword\":\"123\",\r\n   \"oldPassword\":\"Tony123\"\r\n\r\n  \r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/changepassword",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"changepassword"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "111"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6f-aR9xJxKI9EfhLdTs3q2ImcpHE8A\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 21:15:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"newPassword must be longer than or equal to 6 characters\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \r\n   \"newPassword\":\"123456\",\r\n   \"oldPassword\":\"Tony123\"\r\n\r\n  \r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/changepassword",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"changepassword"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 21:17:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "otp",
+			"item": [
+				{
+					"name": "resend",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"pm.globals.set(\"verificationToken\", data.verficationToken);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/otp/resend/{{verificationToken}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"otp",
+								"resend",
+								"{{verificationToken}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/otp/resend/{{verificationToken}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"otp",
+										"resend",
+										"{{verificationToken}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f-K8FtbIwPNh0qI/b8CP6PhZ//F2s\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 14:37:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"verficationToken\": \"d2e47079c643bfad9432c5aa5459bafcb13636d0\"\n}"
+						}
+					]
+				},
+				{
+					"name": "sendOtp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"pm.globals.set(\"verificationToken\", data.verficationToken);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/otp/send/tonygereige5@gmail.com",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"otp",
+								"send",
+								"tonygereige5@gmail.com"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/otp/send/tonygereige5@gmail.com",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"otp",
+										"send",
+										"tonygereige5@gmail.com"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f-K8FtbIwPNh0qI/b8CP6PhZ//F2s\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 14:37:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"verficationToken\": \"d2e47079c643bfad9432c5aa5459bafcb13636d0\"\n}"
+						}
+					]
+				},
+				{
+					"name": "reset",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"password\": \"karen123\",\n    \"otp\":\"099520\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/otp/reset/{{verificationToken}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"otp",
+								"reset",
+								"{{verificationToken}}"
+							]
+						},
+						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+					},
+					"response": [
+						{
+							"name": "wrong otp",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"password\": \"karen123\",\n    \"otp\":\"280022\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/otp/reset/{{verificationToken}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"otp",
+										"reset",
+										"{{verificationToken}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28-G8aWRd/Tfyp/9pilHi60HtWfepg\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 14:41:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": \"wrong otp\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"password\": \"karen123\",\n    \"otp\":\"099520\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/otp/reset/{{verificationToken}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"otp",
+										"reset",
+										"{{verificationToken}}"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 14:43:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "notfound",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"password\": \"karen123\",\n    \"otp\":\"099520\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/otp/reset/{{verificationToken}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"otp",
+										"reset",
+										"{{verificationToken}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"40-JffrRTwGOZcpKM5GNNP8iwxBTO8\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 14:45:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"otp not found\",\n    \"error\": \"Not Found\",\n    \"statusCode\": 404\n}"
+						},
+						{
+							"name": "bad request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"password\": \"kare3\",\n    \"otp\":\"099520\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/otp/reset/{{verificationToken}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"otp",
+										"reset",
+										"{{verificationToken}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "108"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6c-JAB0NiNGSQSUrPBW3SOZAGDnHkE\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 14:46:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"password must be longer than or equal to 6 characters\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "expired",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"password\": \"karen123\",\n    \"otp\":\"099520\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/otp/reset/{{verificationToken}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"otp",
+										"reset",
+										"{{verificationToken}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "38"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"26-TDrF5iH3S5nCIM4rkgRcN5CUDlQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 21:24:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": \"expired\"\n}"
+						}
+					]
+				},
+				{
+					"name": "verify",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"otp\": \"099520\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/otp/verify/{{verificationToken}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"otp",
+								"verify",
+								"{{verificationToken}}"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": [
+						{
+							"name": "wrong otp",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"otp\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/otp/verify/{{verificationToken}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"otp",
+										"verify",
+										"{{verificationToken}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28-G8aWRd/Tfyp/9pilHi60HtWfepg\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 14:39:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": \"wrong otp\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"otp\": \"099520\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/otp/verify/{{verificationToken}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"otp",
+										"verify",
+										"{{verificationToken}}"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "66"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"42-eD/p6NKdGkqOZBwPH3scdr7EVDM\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 14:40:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"d2e47079c643bfad9432c5aa5459bafcb13636d0\",\n    \"status\": true\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "complaint",
+			"item": [
+				{
+					"name": "CreateComplaint/Client",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//pm.globals.get(\"token\");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"issue\",\r\n  \"description\": \"Experiencing frequent disconnections and slow speeds.\",\r\n  \"categories\": [\"661eafef716b1297934b5bb0\",\"661e5f96e8a2d5bee92c1d4a\"]\r\n  //\"status\":\"INPROGRESS\"\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/complaints",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"complaints"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "bad request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"issue7\",\r\n  \"description\": \"Experiencing frequent disconnections and slow speeds.\",\r\n  //\"categories\": [\"661d263cbab79aded8080bf8\",\"661d26cfbab79aded8080bfe\"],\r\n  \"status\":\"INPROGRESS\"\r\n  \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/complaints",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"complaints"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "165"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a5-vrsPyrFisjH1qSjuqPnUCU1pD9w\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 17:34:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"property status should not exist\",\n        \"each value in categories must be a mongodb id\",\n        \"categories must be an array\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"issue7\",\r\n  \"description\": \"Experiencing frequent disconnections and slow speeds.\",\r\n  \"categories\": [\"661eafef716b1297934b5bb0\",\"661e5f96e8a2d5bee92c1d4a\"]\r\n  //\"status\":\"INPROGRESS\"\r\n  \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/complaints",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"complaints"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "336"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"150-81tE2Xm+HeXN19SD3uYIfV3KARc\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 17:35:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"categories\": [\n        \"661eafef716b1297934b5bb0\",\n        \"661e5f96e8a2d5bee92c1d4a\"\n    ],\n    \"title\": \"issue7#1\",\n    \"description\": \"Experiencing frequent disconnections and slow speeds.\",\n    \"status\": \"PENDING\",\n    \"createdBy\": \"661e64d5e8a2d5bee92c1d52\",\n    \"_id\": \"661eb6d7001867e812f22eaa\",\n    \"createdAt\": \"2024-04-16T17:35:19.400Z\",\n    \"updatedAt\": \"2024-04-16T17:35:19.400Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "DeleteComplaint/Client",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/complaints/661eb6d7001867e812f22eaa",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"complaints",
+								"661eb6d7001867e812f22eaa"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "not your complaint",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/complaints/661eb6d7001867e812f22eaa",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"complaints",
+										"661eb6d7001867e812f22eaa"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-94TPWF/sYwZwVcVeZMUxGzy/y2Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 17:39:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"not your complaint\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						},
+						{
+							"name": "delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/complaints/661eb6d7001867e812f22eaa",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"complaints",
+										"661eb6d7001867e812f22eaa"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28-5C7N4rcpDEmIiuT+YkUQ7dshErk\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 17:42:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Not Found\",\n    \"statusCode\": 404\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/complaints/661eb8b5ff42ae43cc122e8b",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"complaints",
+										"661eb8b5ff42ae43cc122e8b"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 17:44:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "getMycomplaints/Client",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/complaints/?page=1&limit=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"complaints",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/complaints/?page=1&limit=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"complaints",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "332"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14c-jlgodIiGsmFEVobQ2y1uce8RibA\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 17:46:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"paginationInfo\": {\n        \"currentPage\": 1,\n        \"totalPages\": 2,\n        \"totalComplaints\": 3\n    },\n    \"complaints\": [\n        {\n            \"_id\": \"661eb8b8ff42ae43cc122e94\",\n            \"title\": \"issue#5\",\n            \"description\": \"Experiencing frequent disconnections and slow speeds.\"\n        },\n        {\n            \"_id\": \"661eb8b7ff42ae43cc122e91\",\n            \"title\": \"issue#4\",\n            \"description\": \"Experiencing frequent disconnections and slow speeds.\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "getAllPaginated&filtred/CmsUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/complaints/all/?page=1&limit=6&userId=661e64e4e8a2d5bee92c1d5c&status=PENDING",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"complaints",
+								"all",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "6"
+								},
+								{
+									"key": "userId",
+									"value": "661e64e4e8a2d5bee92c1d5c"
+								},
+								{
+									"key": "status",
+									"value": "PENDING"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "bad request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/complaints/all/?page=1&limit=6&userId=661e64e4e8a2d5bee92c1d5c&status=PENDING2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"complaints",
+										"all",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "6"
+										},
+										{
+											"key": "userId",
+											"value": "661e64e4e8a2d5bee92c1d5c"
+										},
+										{
+											"key": "status",
+											"value": "PENDING2"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "138"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8a-92hPfPrL9GkThw+bQsWuKp23T8w\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 18:20:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"status must be one of the following values: PENDING, INPROGRESS, RESOLVED, REJECTED\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/complaints/all/?page=1&limit=6&userId=661e64e4e8a2d5bee92c1d5c&status=PENDING",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"complaints",
+										"all",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "6"
+										},
+										{
+											"key": "userId",
+											"value": "661e64e4e8a2d5bee92c1d5c"
+										},
+										{
+											"key": "status",
+											"value": "PENDING"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "578"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"242-ppgKL8SpPvf6HUXPuDpOb93As28\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 19:25:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"paginationInfo\": {\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalComplaints\": 2\n    },\n    \"complaints\": [\n        {\n            \"_id\": \"661eb8b8ff42ae43cc122e94\",\n            \"categories\": [\n                {\n                    \"_id\": \"661eafef716b1297934b5bb0\",\n                    \"name\": \"category2\"\n                },\n                {\n                    \"_id\": \"661e5f96e8a2d5bee92c1d4a\",\n                    \"name\": \"category3\"\n                }\n            ],\n            \"title\": \"issue#5\",\n            \"description\": \"Experiencing frequent disconnections and slow speeds.\"\n        },\n        {\n            \"_id\": \"661eb8b7ff42ae43cc122e91\",\n            \"categories\": [\n                {\n                    \"_id\": \"661eafef716b1297934b5bb0\",\n                    \"name\": \"category2\"\n                },\n                {\n                    \"_id\": \"661e5f96e8a2d5bee92c1d4a\",\n                    \"name\": \"category3\"\n                }\n            ],\n            \"title\": \"issue#4\",\n            \"description\": \"Experiencing frequent disconnections and slow speeds.\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "InfoOfComplaint/Client",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/complaints/mycomplaint/661eb8b6ff42ae43cc122e8e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"complaints",
+								"mycomplaint",
+								"661eb8b6ff42ae43cc122e8e"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "not your complaint",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/complaints/mycomplaint/661eb6d7001867e812f22eaa",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"complaints",
+										"mycomplaint",
+										"661eb6d7001867e812f22eaa"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-94TPWF/sYwZwVcVeZMUxGzy/y2Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 19:16:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"not your complaint\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/complaints/mycomplaint/661eb8b6ff42ae43cc122e8e",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"complaints",
+										"mycomplaint",
+										"661eb8b6ff42ae43cc122e8e"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "598"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"256-8mIV9PW2sNfXVtLvY5Hs4HSTjqc\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 19:18:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"661eb8b6ff42ae43cc122e8e\",\n    \"categories\": [\n        {\n            \"_id\": \"661eafef716b1297934b5bb0\",\n            \"name\": \"category2\",\n            \"description\": \"\",\n            \"createdAt\": \"2024-04-16T17:05:51.044Z\",\n            \"updatedAt\": \"2024-04-16T17:05:51.044Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"661e5f96e8a2d5bee92c1d4a\",\n            \"name\": \"category3\",\n            \"description\": \"\",\n            \"createdAt\": \"2024-04-16T11:23:02.777Z\",\n            \"updatedAt\": \"2024-04-16T11:23:02.777Z\",\n            \"__v\": 0\n        }\n    ],\n    \"title\": \"issue#3\",\n    \"description\": \"Experiencing frequent disconnections and slow speeds.\",\n    \"status\": \"INPROGRESS\",\n    \"createdBy\": \"661e64e4e8a2d5bee92c1d5c\",\n    \"createdAt\": \"2024-04-16T17:43:18.860Z\",\n    \"updatedAt\": \"2024-04-16T19:14:23.719Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Get complaints grouped by status/Client",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/complaints/complaintsbystatus",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"complaints",
+								"complaintsbystatus"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/complaints/complaintsbystatus",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"complaints",
+										"complaintsbystatus"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "689"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b1-zBeTYfb2KtVR6KBfNrd4wMOwMyI\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 19:19:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"INPROGRESS\",\n        \"complaint\": [\n            {\n                \"title\": \"issue#3\",\n                \"categories\": [\n                    \"category2\",\n                    \"category3\"\n                ],\n                \"description\": \"Experiencing frequent disconnections and slow speeds.\",\n                \"createdAt\": \"2024-04-16T17:43:18.860Z\",\n                \"updatedAt\": \"2024-04-16T19:14:23.719Z\"\n            }\n        ]\n    },\n    {\n        \"_id\": \"PENDING\",\n        \"complaint\": [\n            {\n                \"title\": \"issue#4\",\n                \"categories\": [\n                    \"category2\",\n                    \"category3\"\n                ],\n                \"description\": \"Experiencing frequent disconnections and slow speeds.\",\n                \"createdAt\": \"2024-04-16T17:43:19.877Z\",\n                \"updatedAt\": \"2024-04-16T17:43:19.877Z\"\n            },\n            {\n                \"title\": \"issue#5\",\n                \"categories\": [\n                    \"category2\",\n                    \"category3\"\n                ],\n                \"description\": \"Experiencing frequent disconnections and slow speeds.\",\n                \"createdAt\": \"2024-04-16T17:43:20.934Z\",\n                \"updatedAt\": \"2024-04-16T17:43:20.934Z\"\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "updatestatus/Admin",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"status\":\"INPROGRESS\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/complaints/661eb8b6ff42ae43cc122e8e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"complaints",
+								"661eb8b6ff42ae43cc122e8e"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"status\":\"INPROGRESS\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/complaints/661eb8b6ff42ae43cc122e8e",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"complaints",
+										"661eb8b6ff42ae43cc122e8e"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 18:52:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "not admin",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"status\":\"INPROGRESS\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/complaints/661eb8b6ff42ae43cc122e8e",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"complaints",
+										"661eb8b6ff42ae43cc122e8e"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-MZJWZc+Y+RUbHpnhz2B2Vipii24\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 19:14:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden resource\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "Createcategory/cmsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n\n\n{\"name\":\"category3\",\"description\":\"\"}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\n\n\n{\"name\":\"category4\",\"description\":\"\"}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/categories",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "156"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9c-ruLgi7KAaoZkzQ5i6FlxPWeY5xE\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 17:06:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"category4\",\n    \"description\": \"\",\n    \"_id\": \"661eaff9716b1297934b5bb2\",\n    \"createdAt\": \"2024-04-16T17:06:01.237Z\",\n    \"updatedAt\": \"2024-04-16T17:06:01.237Z\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "bad request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\n\n\n{\n    //\"name\":\"category4\",\n\"description\":\"\"}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/categories",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4c-OAcXBBy5WnEwGJ/iPFrjt6tWieY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 17:06:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"name must be a string\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						}
+					]
+				},
+				{
+					"name": "updateCategory/cmsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\"name\":\"new\",\"description\":\"update\"}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/categories/661d26cfbab79aded8080bfe",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories",
+								"661d26cfbab79aded8080bfe"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": [
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\n{\"description\":\"update\"}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/categories/661d26cfbab79aded8080bfe",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"661d26cfbab79aded8080bfe"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28-5C7N4rcpDEmIiuT+YkUQ7dshErk\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 17:10:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Not Found\",\n    \"statusCode\": 404\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\n{\"description\":\"update\"}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/categories/661eafe7716b1297934b5bae",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"661eafe7716b1297934b5bae"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 17:10:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "deleteCategory/CmsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n//{\"name\":\"pop\",\"description\":\"test\", \"createdByRef\":\"65e4c56c4b43ff9f97bb4763\",\"updatedByRef\":\"65e4c56c4b43ff9f97bb4763\"}\n\n{\"name\":\"health\",\"description\":\"\"}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/categories/661eafef716b1297934b5bb0",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories",
+								"661eafef716b1297934b5bb0"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\n//{\"name\":\"pop\",\"description\":\"test\", \"createdByRef\":\"65e4c56c4b43ff9f97bb4763\",\"updatedByRef\":\"65e4c56c4b43ff9f97bb4763\"}\n\n{\"name\":\"health\",\"description\":\"\"}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/categories/661eafe7716b1297934b5bae",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"661eafe7716b1297934b5bae"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 17:11:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "error category is a reference",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\n//{\"name\":\"pop\",\"description\":\"test\", \"createdByRef\":\"65e4c56c4b43ff9f97bb4763\",\"updatedByRef\":\"65e4c56c4b43ff9f97bb4763\"}\n\n{\"name\":\"health\",\"description\":\"\"}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/categories/661eafef716b1297934b5bb0",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"661eafef716b1297934b5bb0"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"27-+1iTNtgbUByP295TMTaQKuiba7A\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 17:36:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Conflict\",\n    \"statusCode\": 409\n}"
+						}
+					]
+				},
+				{
+					"name": "getAllCategory/Public",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRvbnlnZXJlaWdlMUBnbWFpbC5jb20iLCJ1c2VySWQiOiI2NWYwMTNmZDgzNTkwYzY2MzdhYmNmZjciLCJpYXQiOjE3MTAyMzI5OTMsImV4cCI6MTcxMDIzNjU5M30.clLNNdHiSmy_fr1rftkSBxVO-Ji1nhcAu7P0w2RmcLw",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRvbnlnZXJlaWdlMUBnbWFpbC5jb20iLCJ1c2VySWQiOiI2NWYwMTNmZDgzNTkwYzY2MzdhYmNmZjciLCJpYXQiOjE3MTAyMzI5OTMsImV4cCI6MTcxMDIzNjU5M30.clLNNdHiSmy_fr1rftkSBxVO-Ji1nhcAu7P0w2RmcLw",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/categories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "214"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d6-yVneoA8MMI7AjbLUzZ986rOPD4Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 17:12:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"661e5f96e8a2d5bee92c1d4a\",\n        \"name\": \"category3\",\n        \"description\": \"\"\n    },\n    {\n        \"_id\": \"661eafef716b1297934b5bb0\",\n        \"name\": \"category2\",\n        \"description\": \"\"\n    },\n    {\n        \"_id\": \"661eaff9716b1297934b5bb2\",\n        \"name\": \"category4\",\n        \"description\": \"\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "getAllpaginated/Client",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/categories/paginated?page=1&limit=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories",
+								"paginated"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/categories/paginated?page=1&limit=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"paginated"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "228"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e4-IYeu/s7Vf80xNUB1bRUuQnarCMM\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 17:13:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"paginationInfo\": {\n        \"currentPage\": 1,\n        \"totalPages\": 2,\n        \"totalCategories\": 3\n    },\n    \"categories\": [\n        {\n            \"_id\": \"661eaff9716b1297934b5bb2\",\n            \"name\": \"category4\",\n            \"description\": \"\"\n        },\n        {\n            \"_id\": \"661eafef716b1297934b5bb0\",\n            \"name\": \"category2\",\n            \"description\": \"\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Getone/CmsUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/categories/661e5f96e8a2d5bee92c1d4a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories",
+								"661e5f96e8a2d5bee92c1d4a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "one",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/categories/661e5f96e8a2d5bee92c1d4a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"661e5f96e8a2d5bee92c1d4a"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "156"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9c-1FDTiskWrg24/3FWkgre/igOesc\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 17:14:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"661e5f96e8a2d5bee92c1d4a\",\n    \"name\": \"category3\",\n    \"description\": \"\",\n    \"createdAt\": \"2024-04-16T11:23:02.777Z\",\n    \"updatedAt\": \"2024-04-16T11:23:02.777Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
